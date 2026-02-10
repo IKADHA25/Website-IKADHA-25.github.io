@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKADHA Angkatan 2025</title>
+    <style>
+        /* ========================================
+           RESET & GLOBAL STYLES
+           ======================================== */
+        /* Reset semua margin dan padding default browser */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ukuran elemen termasuk border dan padding */
+        }
+
+        /* Styling global untuk seluruh halaman */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font utama yang modern */
+            line-height: 1.6; /* Jarak antar baris untuk readability */
+            color: #333; /* Warna text default (dark gray) */
+        }
+
+        /* ========================================
+           HEADER / NAVIGATION BAR
+           ======================================== */
+        /* Header sticky yang tetap di atas saat scroll */
+        header {
+            background: linear-gradient(135deg, #0a2b74 0%, #1a4a95 100%); /* Gradient biru dari gelap ke terang */
+            padding: 15px 0; /* Padding vertikal */
+            position: sticky; /* Tetap di atas saat scroll */
+            top: 0; /* Posisi dari atas */
+            z-index: 1000; /* Layer tertinggi agar tidak tertutup elemen lain */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow untuk efek depth */
+        }
+
+        /* Container navbar - flexbox untuk align horizontal */
+        .navbar {
+            max-width: 1200px; /* Lebar maksimal container */
+            margin: 0 auto; /* Center container */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Logo di kiri, nav di kanan */
+            align-items: center; /* Vertically center items */
+            padding: 0 20px; /* Padding horizontal */
+        }
+
+        /* Logo section dengan image dan text */
+        .logo-nav {
+            display: flex; /* Inline layout */
+            align-items: center; /* Vertically align logo dan text */
+            gap: 15px; /* Jarak antara logo dan text */
+        }
+
+        /* Logo image - circular shape */
+        .logo-nav img {
+            width: 50px; /* Ukuran logo */
+            height: 50px;
+            border-radius: 50%; /* Membuat circular */
+        }
+
+        /* Logo text styling */
+        .logo-text h1 {
+            font-size: 24px; /* Ukuran heading */
+            color: white; /* White text */
+            margin: 0; /* Hapus margin default */
+        }
+
+        /* Logo subtitle */
+        .logo-text p {
+            color: #e0e0e0; /* Light gray */
+            font-size: 12px; /* Smaller text */
+            margin: 0;
+        }
+
+        /* Navigation links */
+        .nav-links {
+            display: flex; /* Horizontal layout */
+            gap: 20px; /* Jarak antar link */
+        }
+
+        /* Individual navigation link */
+        .nav-links a {
+            color: white; /* White text */
+            text-decoration: none; /* Hapus underline */
+            font-weight: 500; /* Semi-bold */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Hover effect untuk navigation */
+        .nav-links a:hover {
+            color: #ffd700; /* Berubah jadi gold */
+        }
+
+        /* ========================================
+           HERO SECTION (Banner Utama)
+           ======================================== */
+        /* ========================================
+           HERO SECTION (Banner Utama)
+           ======================================== */
+        /* Hero section - section pertama setelah header */
+        .hero {
+            background: linear-gradient(135deg, #0a2b74 0%, #1a4a95 50%, #456a80 100%); /* Gradient background */
+            background-attachment: fixed; /* Parallax effect - background tetap saat scroll */
+            color: white; /* Text color putih */
+            padding: 100px 20px; /* Padding besar untuk space */
+            text-align: center; /* Center align semua text */
+            min-height: 600px; /* Minimal tinggi section */
+            display: flex; /* Flexbox untuk vertical center */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center vertikal */
+            align-items: center; /* Center horizontal */
+        }
+
+        /* Hero main heading */
+        .hero h1 {
+            font-size: 52px; /* Ukuran besar untuk impact */
+            font-weight: 700; /* Bold weight */
+            margin-bottom: 15px; /* Spacing bawah */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow untuk text */
+        }
+
+        /* Hero subtitle (tagline) */
+        .hero p {
+            font-size: 24px; /* Ukuran medium */
+            color: #ffd700; /* Gold color */
+            margin-bottom: 20px;
+            font-weight: 600; /* Semi-bold */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero description text */
+        .hero-desc {
+            font-size: 16px; /* Normal font size */
+            max-width: 700px; /* Limit width untuk readability */
+            margin: 0 auto 30px; /* Center dan spacing */
+            line-height: 1.8; /* Bigger line height untuk readability */
+            color: #f0f0f0; /* Light gray */
+        }
+
+        /* Container untuk CTA buttons */
+        .hero-buttons {
+            display: flex; /* Horizontal layout */
+            gap: 15px; /* Jarak antar button */
+            justify-content: center; /* Center buttons */
+            flex-wrap: wrap; /* Wrap pada layar kecil */
+        }
+
+        /* Call-to-action buttons styling */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px; /* Button padding */
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            text-decoration: none; /* Hapus link underline */
+            border-radius: 6px; /* Rounded corners */
+            font-size: 16px;
+            font-weight: 600; /* Bold text */
+            transition: all 0.3s ease; /* Smooth transitions */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow */
+            border: none;
+            cursor: pointer; /* Pointer cursor */
+        }
+
+        /* Hover effect untuk primary button */
+        .cta-button:hover {
+            background-color: #45a049; /* Darker green */
+            transform: translateY(-3px); /* Lift effect */
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4); /* Bigger shadow */
+        }
+
+        /* Secondary button style (white outline) */
+        .cta-button.secondary {
+            background-color: transparent; /* Transparent background */
+            border: 2px solid white; /* White border */
+            color: white;
+        }
+
+        /* Hover effect secondary button */
+        .cta-button.secondary:hover {
+            background-color: white; /* White background on hover */
+            color: #0a2b74; /* Dark blue text */
+        }
+
+        /* ========================================
+           ABOUT SECTION (Tentang IKADHA)
+           ======================================== */
+        /* ========================================
+           ABOUT SECTION (Tentang IKADHA)
+           ======================================== */
+        /* About section styling */
+        .about {
+            padding: 60px 20px; /* Vertical dan horizontal padding */
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        /* About container - max width untuk readability */
+        .about-container {
+            max-width: 1200px; /* Limit width */
+            margin: 0 auto; /* Center */
+        }
+
+        /* About section title */
+        .about-title {
+            text-align: center;
+            font-size: 36px; /* Large heading */
+            font-weight: 700; /* Bold */
+            color: #0a2b74; /* Dark blue */
+            margin-bottom: 30px; /* Spacing bawah */
+        }
+
+        /* Grid layout untuk 2 kolom konten */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 equal columns */
+            gap: 40px; /* Space between columns */
+            align-items: center; /* Vertical align */
+        }
+
+        /* About section h3 (subheading) */
+        .about-text h3 {
+            color: #0a2b74;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* About section paragraphs */
+        .about-text p {
+            color: #666; /* Dark gray */
+            margin-bottom: 15px;
+            line-height: 1.8; /* Good spacing */
+        }
+
+        /* About section list styling */
+        .about-text ul {
+            list-style-position: inside; /* Bullet point position */
+            color: #666;
+        }
+
+        /* About section list items */
+        .about-text li {
+            margin-bottom: 10px; /* Space antar items */
+            padding-left: 10px; /* Extra padding */
+        }
+
+        /* ========================================
+           ANNOUNCEMENT SECTION (Pengumuman)
+           ======================================== */
+        /* Announcement section styling */
+        .announcement {
+            padding: 60px 20px;
+            background: white; /* White background */
+        }
+
+        /* Announcement container */
+        .announcement-container {
+            max-width: 1000px; /* Limit width */
+            margin: 0 auto;
+        }
+
+        /* Announcement section title */
+        .announcement-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #0a2b74;
+            margin-bottom: 40px;
+        }
+
+        /* Card container untuk announcement */
+        .announcement-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%); /* Subtle gradient */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Card shadow */
+            transition: all 0.3s ease; /* Smooth transitions */
+        }
+
+        /* Hover effect untuk card */
+        .announcement-card:hover {
+            transform: translateY(-5px); /* Lift up effect */
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Bigger shadow */
+        }
+
+        /* Image container dalam announcement */
+        .announcement-image {
+            width: 100%; /* Full width */
+            height: 300px; /* Fixed height */
+            background-color: #e0e0e0; /* Fallback color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Image styling */
+        .announcement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crop image untuk fit */
+            transition: transform 0.3s ease; /* Smooth zoom */
+        }
+
+        /* Zoom effect pada hover card */
+        .announcement-card:hover .announcement-image img {
+            transform: scale(1.05); /* Slight zoom */
+        }
+
+        /* Announcement content area */
+        .announcement-content {
+            padding: 30px; /* Content padding */
+            text-align: center;
+        }
+
+        /* Announcement content heading */
+        .announcement-content h3 {
+            color: #0a2b74;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* Announcement content paragraphs */
+        .announcement-content p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Announcement CTA button */
+        .announcement-button {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .announcement-button:hover {
+            background-color: #45a049; /* Darker green */
+            transform: translateY(-2px); /* Lift effect */
+        }
+
+        /* ========================================
+           FEATURES SECTION (Keunggulan IKADHA)
+           ======================================== */
+        /* Features section styling */
+        .features {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+
+        /* Features container */
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Features title */
+        .features-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #0a2b74;
+            margin-bottom: 50px;
+        }
+
+        /* Grid layout untuk feature cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 30px; /* Space between cards */
+        }
+
+        /* Feature card styling */
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Feature card hover effect */
+        .feature-card:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Bigger shadow */
+        }
+
+        /* Feature icon (emoji) */
+        .feature-icon {
+            font-size: 48px; /* Big emoji */
+            margin-bottom: 15px;
+        }
+
+        /* Feature card heading */
+        .feature-card h3 {
+            color: #0a2b74;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Feature card description */
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           DOCUMENTATION SECTION
+           ======================================== */
+        /* Documentation section styling */
+        .documentation {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+
+        /* Documentation container */
+        .documentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Documentation title */
+        .documentation-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #0a2b74;
+            margin-bottom: 50px;
+        }
+
+        /* Documentation grid layout */
+        .documentation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Documentation card styling */
+        .documentation-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #4CAF50;
+        }
+
+        /* Documentation card hover effect */
+        .documentation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Documentation card icon */
+        .doc-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Documentation card heading */
+        .documentation-card h3 {
+            color: #0a2b74;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Documentation card description */
+        .documentation-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Documentation download/view button */
+        .doc-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        /* Documentation button hover effect */
+        .doc-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           SOCIAL MEDIA SECTION
+           ======================================== */
+        /* Social section styling */
+        .social-section {
+            padding: 60px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        /* Social section title */
+        .social-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0a2b74;
+            margin-bottom: 30px;
+        }
+
+        /* Social links container */
+        .social-links {
+            display: flex; /* Horizontal layout */
+            gap: 20px; /* Space between buttons */
+            justify-content: center;
+            flex-wrap: wrap; /* Wrap pada layar kecil */
+        }
+
+        /* Social media buttons */
+        .social-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #0a2b74; /* Dark blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #0a2b74;
+        }
+
+        /* Social button hover effect */
+        .social-button:hover {
+            background-color: transparent; /* Transparent */
+            color: #0a2b74; /* Text becomes blue */
+            transform: translateY(-2px); /* Lift effect */
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        /* Footer styling */
+        footer {
+            background-color: #0a2b74; /* Dark blue */
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px; /* Small text */
+        }
+
+        /* Footer content container */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer paragraphs */
+        footer p {
+            margin: 5px 0; /* Small margin */
+        }
+
+        /* Footer links styling */
+        footer a {
+            color: #ffd700; /* Gold color */
+            text-decoration: none;
+        }
+
+        /* Footer link hover */
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN (Mobile & Tablet)
+           ======================================== */
+        /* Media query untuk layar kecil (768px dan bawah) */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px; /* Smaller heading */
+            }
+
+            .hero p {
+                font-size: 18px; /* Smaller subtitle */
+            }
+
+            /* Stack about content vertically */
+            .about-content {
+                grid-template-columns: 1fr; /* Single column */
+            }
+
+            /* Smaller titles on mobile */
+            .features-title,
+            .announcement-title,
+            .about-title {
+                font-size: 28px;
+            }
+
+            /* Stack buttons vertically */
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Full width buttons on mobile */
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Hide navigation links pada mobile */
+            .nav-links {
+                display: none; /* Bisa diganti dengan hamburger menu */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================================================
+         HEADER / NAVIGATION BAR
+         ================================================
+         Header sticky yang tetap di atas saat user scroll
+         Berisi logo dan navigation links ke berbagai section
+         ================================================ -->
+    <header>
+        <div class="navbar">
+            <!-- Logo section dengan image dan branding text -->
+            <div class="logo-nav">
+                <img src="LOGO IKADHA NEW.png" alt="Logo IKADHA">
+                <div class="logo-text">
+                    <h1>Ikatan Alumni Darul Huda Mayak</h1>
+                    <p>Angkatan Tahun 2025</p>
+                </div>
+            </div>
+            <!-- Navigation links untuk scroll ke bagian tertentu -->
+            <nav class="nav-links">
+                <a href="#tentang">Tentang</a>
+                <a href="#pengumuman">Pengumuman</a>
+                <a href="#fitur">Cp Korwil</a>
+                <a href="#Dokumentasi">Dokumentasi</a>
+                <a href="#sosial">Sosial Media</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ================================================
+         HERO SECTION (Banner Utama)
+         ================================================
+         Section pertama yang dilihat user setelah membuka website
+         Berisi: judul utama, tagline, deskripsi, dan CTA buttons
+         Background: gradient biru dengan parallax effect
+         ================================================ -->
+    <section class="hero">
+        <h1>Welcome To Website Angkatan 2025</h1>
+        <p>Website ini digunakan untuk mempermudah berkomunikasi sesama IKADHA angkatan 2025</p>
+        <img src=".vscode/dashboard 1.jpg" alt="Dashboard satu"; width="900px">
+        <p class="hero-desc">
+            Disatukan Oleh Darul Huda & Berpisah Untuk Meraih Cita-Cita.
+        </p>
+    </section>
+
+    <!-- ================================================
+         ABOUT SECTION (Tentang IKADHA)
+         ================================================
+         Menjelaskan apa itu IKADHA dan apa visi/misinya
+         Layout: 2 kolom (info + visi-misi)
+         Responsive: menjadi 1 kolom di mobile
+         ================================================ -->
+    <section class="about" id="tentang">
+        <div class="about-container">
+            <h2 class="about-title">Tentang IKADHA</h2>
+            <div class="about-content">
+                <!-- Kolom 1: Penjelasan siapa kami -->
+                <div>
+                    <h3>Siapa Kami?</h3>
+                    <p>
+                        Ikatan Alumni Darul Huda Mayak (IKADHA) Angkatan 2025 Merupakan santri yang lulus pada tahun 2025,Dibentuk dengan semangat kekeluargaan, komunitas ini bertujuan untuk menjaga tali silaturahmi yang telah terjalin selama masa pendidikan, serta menjadi ruang kolaborasi bagi seluruh anggota dalam berbagi informasi, pengalaman, dan kontribusi nyata bagi almamater serta masyarakat.
+                    </p>
+                </div>
+                <!-- Kolom 2: Visi dan Misi -->
+                <div>
+                    <h3>Visi & Misi</h3>
+                    <ul>
+                        <li>✓ Membangun komunitas santri yang solid dan saling mendukung</li>
+                        <li>✓ Menjembatani alumni santri dari berbagai generasi</li>
+                        <li>✓ Berbagi ilmu, pengalaman, dan inspirasi</li>
+                        <li>✓ Menciptakan peluang kolaborasi dan kemitraan</li>
+                        <li>✓ Memberikan kontribusi nyata untuk masyarakat</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         ANNOUNCEMENT SECTION (Pengumuman Terbaru)
+         ================================================
+         Highlight acara/pengumuman terpenting
+         Berisi: card dengan image, title, deskripsi, dan CTA button
+         Hover effect: lift dan zoom image
+         ================================================ -->
+    <section class="announcement" id="pengumuman">
+        <div class="announcement-container">
+            <h2 class="announcement-title">📢 Pengumuman Terbaru</h2>
+            <!-- Card container untuk pengumuman -->
+            <div class="announcement-card">
+                <!-- Bagian image dengan hover zoom effect -->
+                <div class="announcement-image">
+                    <img src="beranda .jpeg" alt="Pelantikan IKADHA Angkatan 2025">
+                </div>
+                <!-- Bagian konten/text -->
+                <div class="announcement-content">
+                    <h3>Buka Bersama IKADHA 2026</h3>
+                    <p>
+                        Bergabunglah dengan acara Buka Bersama IKADHA 2026! Acara ini adalah momentum 
+                        istimewa bagi seluruh anggota komunitas untuk bersilaturahmi, berbagi cerita, 
+                        dan memperkuat ikatan persaudaraan kita.
+                    </p>
+                    <p>
+                        <strong>Pendaftaran dibuka sekarang!</strong> Jangan lewatkan kesempatan emas ini 
+                        untuk menjadi bagian dari acara tahunan terbesar kami.
+                    </p>
+                    <!-- CTA button untuk registrasi -->
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhDasimjadLtCR92FELDZjLNHj7lyDWCOQQh0txRe65UVn4A/viewform?usp=header" class="announcement-button">🎯 Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         FEATURES SECTION (Keunggulan IKADHA)
+         ================================================
+         Menampilkan 6 keunggulan/benefit dengan grid layout
+         Setiap card: icon (emoji) + heading + deskripsi singkat
+         Hover effect: lift up dan shadow lebih besar
+         Responsive: otomatis menyesuaikan jumlah kolom
+         ================================================ -->
+    <section class="features" id="fitur">
+        <div class="features-container">
+            <h2 class="features-title">Informasi Kas Angkatan & Cp Admin Korwil</h2>
+            <!-- Grid container untuk feature cards -->
+            <div class="features-grid">
+                <!-- Feature card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Koordinator Wilayah Ponorogo Kota Reog (Putra)</h3>
+                    <p style="color:#45a049; font-size: 20px">Bagas Adji Wicaksono</p>
+                    <a href="https://wa.me/6285831389711" class="cta-button">Wa.me</a>
+                </div>
+                <!-- Feature card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Koordinator Wilayah Madiun Raya Putra</h3>
+                    <p style="color:#45a049; font-size: 20px">M. Fadhil Aziz Nawawi</p>
+                    <a href="https://wa.me/6285831389711" class="cta-button">Wa.me</a>
+                </div>
+                <!-- Feature card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Berbagi Ilmu</h3>
+                    <p>Akses ke berbagai seminar, workshop, dan sesi sharing ilmu.</p>
+                </div>
+                <!-- Feature card 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Program Berkualitas</h3>
+                    <p>Acara-acara menarik yang dirancang untuk pengembangan diri.</p>
+                </div>
+                <!-- Feature card 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Peluang Bisnis</h3>
+                    <p>Temukan mitra bisnis dan peluang kolaborasi yang menguntungkan.</p>
+                </div>
+                <!-- Feature card 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Kebersamaan</h3>
+                    <p>Rasakan kehangatan persaudaraan dan saling mendukung antar anggota.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         DOCUMENTATION SECTION (Dokumentasi)
+         ================================================
+         Section untuk memposting dan menampilkan dokumentasi
+         Berisi berbagai dokumen/panduan yang berguna bagi anggota
+         Grid layout dengan card styling untuk setiap dokumentasi
+         ================================================ -->
+    <section class="documentation" id="Dokumentasi">
+        <div class="documentation-container">
+            <h2 class="documentation-title">📚 Dokumentasi IKADHA</h2>
+            <!-- Grid container untuk documentation cards -->
+            <div class="documentation-grid">
+                <!-- Documentation card 1 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">📋</div>
+                    <h3>Panduan Pendaftaran</h3>
+                    <p>Panduan lengkap cara mendaftar menjadi anggota IKADHA dan aktivasi akun Anda.</p>
+                    <a href="#" class="doc-button">📥 Download</a>
+                </div>
+                <!-- Documentation card 2 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">🎯</div>
+                    <h3>Program BUKSABER</h3>
+                    <p>Informasi detail tentang program BUKSABER 2026 dan cara mengikuti acara.</p>
+                    <a href="input%20data%201.html" class="doc-button">🔗 Lihat Detail</a>
+                </div>
+                <!-- Documentation card 3 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">📑</div>
+                    <h3>Struktur Organisasi</h3>
+                    <p>Daftar lengkap pengurus IKADHA dan struktur organisasi angkatan 2025.</p>
+                    <a href="#" class="doc-button">📥 Download</a>
+                </div>
+                <!-- Documentation card 4 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">📞</div>
+                    <h3>Kontak Penting</h3>
+                    <p>Daftar nomor kontak penting dan informasi hubungi untuk berbagai kebutuhan.</p>
+                    <a href="#" class="doc-button">👁️ Lihat</a>
+                </div>
+                <!-- Documentation card 5 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">📖</div>
+                    <h3>Panduan Acara</h3>
+                    <p>Panduan lengkap mengikuti berbagai acara yang diselenggarakan IKADHA.</p>
+                    <a href="#" class="doc-button">📥 Download</a>
+                </div>
+                <!-- Documentation card 6 -->
+                <div class="documentation-card">
+                    <div class="doc-icon">✅</div>
+                    <h3>Kebijakan & Aturan</h3>
+                    <p>Kebijakan umum, aturan main, dan tata tertib komunitas IKADHA.</p>
+                    <a href="#" class="doc-button">📥 Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SOCIAL MEDIA SECTION (Ikuti Kami)
+         ================================================
+         Section untuk social media links dengan button styling
+         Memudahkan user untuk follow/follow kami di berbagai platform
+         Buttons dengan hover: transparent background dengan text blue
+         ================================================ -->
+    <section class="social-section" id="sosial">
+        <h2 class="social-title">Klik icon dibawah ini untuk melihat akun sosial media kami</h2>
+        <!-- Subtitle -->
+        <p style="margin-bottom: 30px; color: #666;">Tetap terhubung dengan berita dan update terbaru dari IKADHA</p>
+        <!-- Container untuk social media buttons -->
+        <div class="social-links">
+            <!-- Instagram button dengan href ke actual Instagram page -->
+            <a href="https://www.instagram.com/_kitasantri?igsh=MXRjNHpkamxrM3RxMQ==8" class="social-button">📱 Instagram</a>
+            <a href="https://wa.me/6288991977981" class="social-button">💬 WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- ================================================
+         FOOTER
+         ================================================
+         Section terakhir halaman dengan copyright dan links
+         Styling: dark blue background (#0a2b74) dengan white text
+         Berisi: copyright, community links, dan tagline
+         ================================================ -->
+    <footer>
+        <div class="footer-content">
+            <!-- Copyright text -->
+            <p>&copy; Ikatan Alumni Darul Huda Mayak Angkatan 2025.</p>
+            <!-- Tagline -->
+            <p>Made with ❤️ for the community</p>
+        </div>
+    </footer>
+</body>
+</html>
